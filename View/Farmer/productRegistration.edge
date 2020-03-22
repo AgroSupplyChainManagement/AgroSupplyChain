@@ -1,0 +1,54 @@
+@layout('layout.app')
+
+@section('content')
+ <title>Farmers Product Registration Form</title></head>
+
+<body>
+    
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+             
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <form method = "POST" action = "/farmer/registerProduct" class="login100-form validate-form">
+                            <h2 class="title">Product Registration </h2>
+                            <hr class="type_5">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            @each(user in rows)
+                                            <input class="input--style-4" type="text" name="id" value={{user.id}} hidden>
+                                            @endeach
+                                        </div>
+                                        
+                                        <div class="input-group" class="form-control">
+                                            <label class="label">item name</label>
+                                            <input class="input--style-4" type="text" name="name" required>
+                                        </div>
+                                    
+                                        <div class="input-group">
+                                            <label class="label">price</label>
+                                            <input class="input--style-4" type="number" name="price" required >
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label class="label">Date</label>
+                                            <input class="input--style-4" type="text" name="date" required >
+                                        </div>
+                                    </div>
+                                </div>
+                                                        
+                                
+                                <div class="p-t-15">
+                                    <button  class="btn btn--radius-3 btn--blue" role="button">Add</button>
+                             
+                             </form>     
+                           
+           
+                            </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    @endsection
